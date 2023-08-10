@@ -1,0 +1,1 @@
+Postgress is a ORDBMS - Object-relational database management system.

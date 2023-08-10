@@ -1,0 +1,21 @@
+1. waht is the difference between css html and js?
+  HTML is used for structuring the content of a webpage, CSS is used to styling and layout, and JS is a programming language that adds 
+  intractivity to the webpages
+
+2. explain the concept of responsive web-design
+   responsive web design ensures that websites adapt and display the website content of different devices and screen sizes,  
+   this  can be achieved by using CSS media queries and flexible layout to adjust the element on the user's screen.
+
+3. How do you optimize a website for performance?
+   website performance can be improved by optimizing code, reducing file sizes, leveraging caching technique, minimising 
+   http requests and using technique like minification and compression. optimizing image, usind CDN and following best practices for frontrd dev
+
+
+4. what is AJAX 
+   AJAX is asynchronous javascript and xml is technique that allows we app to update content asynchronously without reloading the entire 
+   webpage.it enable seamless ux by fetching and displaying data from a server in the background, improve intractivity and responsiveness
+
+5. MVC
+   model view controller is a architectural pattern commonly used in web dev. the model represents data and business logic, the view handles the 
+   represantaion and view layer, controller manages the communication between the model and view 
+

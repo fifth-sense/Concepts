@@ -2,7 +2,7 @@
  *  hoisting is a concept in javascript using which we can access functiona and variables even without initialising it
  * this concept of hoisting lies in the memory creation phase of javascript
  * so as we all know javascript is a single threaded synchronous language. and whenever a js code a global execution context 
- * is got created execution starts with two phases first phase is memory creation phase wher js assign memory to all vars and 
+ * is got created execution starts with two phases first phase is memory creation phase where js assign memory to all vars and 
  * function in case variable its assigned a special value undefined in case of proper function it will take the functions as its
  * value, because of this hoisting happens in js
  * examples....
