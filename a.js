@@ -1,7 +1,7 @@
-let a = "jOnAs"
-b = a.slice(0,1).toUpperCase()
-c= a.slice(1,5).toLowerCase()
-d = b+c
+//let a = "jOnAs"
+// b = a.slice(0,1).toUpperCase()
+// c= a.slice(1,5).toLowerCase()
+// d = b+c
 //console.log(d)
 
 //console.log(a.slice(0,1).toUpperCase()+a.slice(1).toLowerCase());
@@ -100,21 +100,21 @@ console.log(v.lastIndexOf(63, 5))
     // for falsy scenario returns undefined
  // });
 
-let ob = [
-    {name: "rakse", id: 1},
-    {name: "ravi", id: 2},
-    {name: "rani", id: 9},
-    {name: "rocky", id: 4},
-    {name: "andle", id: 10},
-    {name: "ramu", id: 12},
-    {name: "gabbar", id: 29},
-    {name: "bijli", id: 14},
-]
+// let ob = [
+//     {name: "rakse", id: 1},
+//     {name: "ravi", id: 2},
+//     {name: "rani", id: 9},
+//     {name: "rocky", id: 4},
+//     {name: "andle", id: 10},
+//     {name: "ramu", id: 12},
+//     {name: "gabbar", id: 29},
+//     {name: "bijli", id: 14},
+// ]
 
 //console.log(ob.find((item) => item.id == 0 )) // undefined
 //console.log(ob.find((item) => item.id == 4 )) //{ name: 'rocky', id: 4 }
 //console.log(ob.findIndex((item)=> item.id == 9)) // 2
-console.log(ob.findLastIndex((item)=>item.name == "ravi"));
+//console.log(ob.findLastIndex((item)=>item.name == "ravi"));
 
 //Filter()
 
@@ -128,18 +128,18 @@ console.log(ob.findLastIndex((item)=>item.name == "ravi"));
 // console.log(ob)
 
 //Sort()
-let x3 = [ 1, 2, 15 ];
+//let x3 = [ 1, 2, 15 ];
 
 // the method reorders the content of arr
-x3.sort();
+//x3.sort();
 
-console.log( x3 );  // 1, 15, 2 - because js item are sort first all element got conversted in string  For strings, lexicographic ordering is applied and indeed "2" > "15".
+//console.log( x3 );  // 1, 15, 2 - because js item are sort first all element got conversted in string  For strings, lexicographic ordering is applied and indeed "2" > "15".
 //to use our own sorting order we can supply function to our sort method
-function alphanumeric(a, b){
-    if(a>b) return 1;
-    if(a==b) return 0
-    if(a<b) return -1
-}
+// function alphanumeric(a, b){
+//     if(a>b) return 1;
+//     if(a==b) return 0
+//     if(a<b) return -1
+// }
 // above function can return as 
 //console.log(x3.sort(function(a,b){return a-b}) ) // [1,2,15] arrow function arr.sort( (a, b) => a - b );
 //console.log(x3.sort(alphanumeric)) // [1,2,15]
@@ -148,20 +148,677 @@ function alphanumeric(a, b){
 //Remember strings comparison algorithm? It compares letters by their codes by default.
 
 //For many alphabets, it’s better to use str.localeCompare method to correctly sort letters, such as Ö.
-let countries = ['Österreich', 'Andorra', 'Vietnam'];
+//let countries = ['Österreich', 'Andorra', 'Vietnam'];
 //console.log(countries.sort((a, b)=> a>b ? 1: -1)) // [ 'Andorra', 'Vietnam', 'Österreich' ] // not sorted properly
 //console.log(countries.sort((a,b)=> a.localeCompare(b)))
 
 //reverse()
-console.log(x3.reverse());
+//console.log(x3.reverse());
 
 //split() join()
 
-let names = 'Bilbo, Gandalf, Nazgul';
+//let names = 'Bilbo, Gandalf, Nazgul';
 //console.log(names.split(", "))
-let res = names.split(", ", 3);
-console.log(res);
+//let res = names.split(", ", 3);
+//console.log(res);
+// Online Javascript Editor for free
+// Write, Edit and Run your Javascript code using JS Online Compiler
 
+console.log("Welcome to Programiz!");
+let a = [
+    {
+        "key": "All",
+        "isChecked": true,
+        "options": [
+            {
+                "id": "Status",
+                "type": "text",
+                "label": "Status",
+                "access": {
+                    "edit": false,
+                    "read": true
+                },
+                "required": false,
+                "isSelected": true,
+                "isVisible": true
+            },
+            {
+                "id": "ORDER_NUM",
+                "type": "text",
+                "label": "Order #",
+                "access": {
+                    "edit": false,
+                    "read": true
+                },
+                "required": false,
+                "isSelected": false,
+                "isVisible": true
+            },
+            {
+                "id": "Order Type",
+                "type": "text",
+                "label": "Order Type",
+                "access": {
+                    "edit": false,
+                    "read": true
+                },
+                "required": false,
+                "isSelected": true,
+                "isVisible": true
+            },
+            {
+                "id": "ORDER_DT",
+                "type": "date-time",
+                "label": "Order Date",
+                "access": {
+                    "edit": false,
+                    "read": true
+                },
+                "required": false,
+                "isSelected": false,
+                "isVisible": true
+            },
+            {
+                "id": "Order Sub Type",
+                "type": "text",
+                "label": "Order Sub Type",
+                "access": {
+                    "edit": false,
+                    "read": true
+                },
+                "required": false,
+                "isSelected": false,
+                "isVisible": true
+            },
+            {
+                "id": "Product",
+                "type": "text",
+                "label": "Product",
+                "access": {
+                    "edit": false,
+                    "read": true
+                },
+                "required": false,
+                "isSelected": false,
+                "isVisible": true
+            },
+            {
+                "id": "Customer Id",
+                "type": "text",
+                "label": "Customer Id",
+                "access": {
+                    "edit": false,
+                    "read": true
+                },
+                "required": false,
+                "isSelected": true,
+                "isVisible": true
+            },
+            {
+                "id": "Customer",
+                "type": "text",
+                "label": "Customer",
+                "access": {
+                    "edit": false,
+                    "read": true
+                },
+                "required": false,
+                "isSelected": true,
+                "isVisible": true
+            },
+            {
+                "id": "Customer Type",
+                "type": "text",
+                "label": "Customer Type",
+                "access": {
+                    "edit": false,
+                    "read": true
+                },
+                "required": false,
+                "isSelected": true,
+                "isVisible": true
+            },
+            {
+                "id": "CCD",
+                "type": "date-time",
+                "label": "Customer Commit Date",
+                "access": {
+                    "edit": false,
+                    "read": true
+                },
+                "required": false,
+                "isSelected": true,
+                "isVisible": true
+            },
+            {
+                "id": "Order Manager",
+                "type": "text",
+                "label": "Order Manager",
+                "access": {
+                    "edit": false,
+                    "read": true
+                },
+                "required": false,
+                "isSelected": true,
+                "isVisible": true
+            },
+            {
+                "id": "Process Step",
+                "type": "text",
+                "label": "Order Process Step",
+                "access": {
+                    "edit": false,
+                    "read": true
+                },
+                "required": false,
+                "isSelected": true,
+                "isVisible": true
+            },
+            {
+                "id": "Process Step Due Date",
+                "type": "date-time",
+                "label": "Process Step Due Date",
+                "access": {
+                    "edit": false,
+                    "read": true
+                },
+                "required": false,
+                "isSelected": true,
+                "isVisible": true
+            },
+            {
+                "id": "Assigned To",
+                "type": "text",
+                "label": "Assigned To",
+                "access": {
+                    "edit": false,
+                    "read": true
+                },
+                "required": false,
+                "isSelected": true,
+                "isVisible": true
+            }
+        ],
+        "dropdownOption": [
+            {
+                "id": "Status",
+                "type": "text",
+                "label": "Status",
+                "access": {
+                    "edit": false,
+                    "read": true
+                },
+                "required": false,
+                "isSelected": true,
+                "isVisible": true
+            },
+            {
+                "id": "ORDER_NUM",
+                "type": "text",
+                "label": "Order #",
+                "access": {
+                    "edit": false,
+                    "read": true
+                },
+                "required": false,
+                "isSelected": false,
+                "isVisible": true
+            },
+            {
+                "id": "Order Type",
+                "type": "text",
+                "label": "Order Type",
+                "access": {
+                    "edit": false,
+                    "read": true
+                },
+                "required": false,
+                "isSelected": true,
+                "isVisible": true
+            },
+            {
+                "id": "ORDER_DT",
+                "type": "date-time",
+                "label": "Order Date",
+                "access": {
+                    "edit": false,
+                    "read": true
+                },
+                "required": false,
+                "isSelected": false,
+                "isVisible": true
+            },
+            {
+                "id": "Order Sub Type",
+                "type": "text",
+                "label": "Order Sub Type",
+                "access": {
+                    "edit": false,
+                    "read": true
+                },
+                "required": false,
+                "isSelected": false,
+                "isVisible": true
+            },
+            {
+                "id": "Product",
+                "type": "text",
+                "label": "Product",
+                "access": {
+                    "edit": false,
+                    "read": true
+                },
+                "required": false,
+                "isSelected": false,
+                "isVisible": true
+            },
+            {
+                "id": "Customer Id",
+                "type": "text",
+                "label": "Customer Id",
+                "access": {
+                    "edit": false,
+                    "read": true
+                },
+                "required": false,
+                "isSelected": true,
+                "isVisible": true
+            },
+            {
+                "id": "Customer",
+                "type": "text",
+                "label": "Customer",
+                "access": {
+                    "edit": false,
+                    "read": true
+                },
+                "required": false,
+                "isSelected": true,
+                "isVisible": true
+            },
+            {
+                "id": "Customer Type",
+                "type": "text",
+                "label": "Customer Type",
+                "access": {
+                    "edit": false,
+                    "read": true
+                },
+                "required": false,
+                "isSelected": true,
+                "isVisible": true
+            },
+            {
+                "id": "CCD",
+                "type": "date-time",
+                "label": "Customer Commit Date",
+                "access": {
+                    "edit": false,
+                    "read": true
+                },
+                "required": false,
+                "isSelected": true,
+                "isVisible": true
+            },
+            {
+                "id": "Order Manager",
+                "type": "text",
+                "label": "Order Manager",
+                "access": {
+                    "edit": false,
+                    "read": true
+                },
+                "required": false,
+                "isSelected": true,
+                "isVisible": true
+            },
+            {
+                "id": "Process Step",
+                "type": "text",
+                "label": "Order Process Step",
+                "access": {
+                    "edit": false,
+                    "read": true
+                },
+                "required": false,
+                "isSelected": true,
+                "isVisible": true
+            },
+            {
+                "id": "Process Step Due Date",
+                "type": "date-time",
+                "label": "Process Step Due Date",
+                "access": {
+                    "edit": false,
+                    "read": true
+                },
+                "required": false,
+                "isSelected": true,
+                "isVisible": true
+            },
+            {
+                "id": "Assigned To",
+                "type": "text",
+                "label": "Assigned To",
+                "access": {
+                    "edit": false,
+                    "read": true
+                },
+                "required": false,
+                "isSelected": true,
+                "isVisible": true
+            }
+        ]
+    },
+    {
+        "key": "v2",
+        "isChecked": false,
+        "options": [
+            {
+                "id": "Status",
+                "type": "text",
+                "label": "Status",
+                "access": {
+                    "edit": false,
+                    "read": true
+                },
+                "required": false,
+                "isSelected": true,
+                "isVisible": true
+            },
+            {
+                "id": "Order Type",
+                "type": "text",
+                "label": "Order Type",
+                "access": {
+                    "edit": false,
+                    "read": true
+                },
+                "required": false,
+                "isSelected": true,
+                "isVisible": true
+            },
+            {
+                "id": "Customer Id",
+                "type": "text",
+                "label": "Customer Id",
+                "access": {
+                    "edit": false,
+                    "read": true
+                },
+                "required": false,
+                "isSelected": true,
+                "isVisible": true
+            },
+            {
+                "id": "Customer",
+                "type": "text",
+                "label": "Customer",
+                "access": {
+                    "edit": false,
+                    "read": true
+                },
+                "required": false,
+                "isSelected": true,
+                "isVisible": true
+            },
+            {
+                "id": "Customer Type",
+                "type": "text",
+                "label": "Customer Type",
+                "access": {
+                    "edit": false,
+                    "read": true
+                },
+                "required": false,
+                "isSelected": true,
+                "isVisible": true
+            },
+            {
+                "id": "CCD",
+                "type": "date-time",
+                "label": "Customer Commit Date",
+                "access": {
+                    "edit": false,
+                    "read": true
+                },
+                "required": false,
+                "isSelected": true,
+                "isVisible": true
+            },
+            {
+                "id": "Order Manager",
+                "type": "text",
+                "label": "Order Manager",
+                "access": {
+                    "edit": false,
+                    "read": true
+                },
+                "required": false,
+                "isSelected": true,
+                "isVisible": true
+            },
+            {
+                "id": "Process Step",
+                "type": "text",
+                "label": "Order Process Step",
+                "access": {
+                    "edit": false,
+                    "read": true
+                },
+                "required": false,
+                "isSelected": true,
+                "isVisible": true
+            },
+            {
+                "id": "Process Step Due Date",
+                "type": "date-time",
+                "label": "Process Step Due Date",
+                "access": {
+                    "edit": false,
+                    "read": true
+                },
+                "required": false,
+                "isSelected": true,
+                "isVisible": true
+            },
+            {
+                "id": "Assigned To",
+                "type": "text",
+                "label": "Assigned To",
+                "access": {
+                    "edit": false,
+                    "read": true
+                },
+                "required": false,
+                "isSelected": true,
+                "isVisible": true
+            }
+        ],
+        "dropdownOption": [
+            {
+                "id": "Status",
+                "type": "text",
+                "label": "Status",
+                "access": {
+                    "edit": false,
+                    "read": true
+                },
+                "required": false,
+                "isSelected": true,
+                "isVisible": true
+            },
+            {
+                "id": "ORDER_NUM",
+                "type": "text",
+                "label": "Order #",
+                "access": {
+                    "edit": false,
+                    "read": true
+                },
+                "required": false,
+                "isSelected": false,
+                "isVisible": true
+            },
+            {
+                "id": "Order Type",
+                "type": "text",
+                "label": "Order Type",
+                "access": {
+                    "edit": false,
+                    "read": true
+                },
+                "required": false,
+                "isSelected": true,
+                "isVisible": true
+            },
+            {
+                "id": "ORDER_DT",
+                "type": "date-time",
+                "label": "Order Date",
+                "access": {
+                    "edit": false,
+                    "read": true
+                },
+                "required": false,
+                "isSelected": false,
+                "isVisible": true
+            },
+            {
+                "id": "Order Sub Type",
+                "type": "text",
+                "label": "Order Sub Type",
+                "access": {
+                    "edit": false,
+                    "read": true
+                },
+                "required": false,
+                "isSelected": false,
+                "isVisible": true
+            },
+            {
+                "id": "Product",
+                "type": "text",
+                "label": "Product",
+                "access": {
+                    "edit": false,
+                    "read": true
+                },
+                "required": false,
+                "isSelected": false,
+                "isVisible": true
+            },
+            {
+                "id": "Customer Id",
+                "type": "text",
+                "label": "Customer Id",
+                "access": {
+                    "edit": false,
+                    "read": true
+                },
+                "required": false,
+                "isSelected": true,
+                "isVisible": true
+            },
+            {
+                "id": "Customer",
+                "type": "text",
+                "label": "Customer",
+                "access": {
+                    "edit": false,
+                    "read": true
+                },
+                "required": false,
+                "isSelected": true,
+                "isVisible": true
+            },
+            {
+                "id": "Customer Type",
+                "type": "text",
+                "label": "Customer Type",
+                "access": {
+                    "edit": false,
+                    "read": true
+                },
+                "required": false,
+                "isSelected": true,
+                "isVisible": true
+            },
+            {
+                "id": "CCD",
+                "type": "date-time",
+                "label": "Customer Commit Date",
+                "access": {
+                    "edit": false,
+                    "read": true
+                },
+                "required": false,
+                "isSelected": true,
+                "isVisible": true
+            },
+            {
+                "id": "Order Manager",
+                "type": "text",
+                "label": "Order Manager",
+                "access": {
+                    "edit": false,
+                    "read": true
+                },
+                "required": false,
+                "isSelected": true,
+                "isVisible": true
+            },
+            {
+                "id": "Process Step",
+                "type": "text",
+                "label": "Order Process Step",
+                "access": {
+                    "edit": false,
+                    "read": true
+                },
+                "required": false,
+                "isSelected": true,
+                "isVisible": true
+            },
+            {
+                "id": "Process Step Due Date",
+                "type": "date-time",
+                "label": "Process Step Due Date",
+                "access": {
+                    "edit": false,
+                    "read": true
+                },
+                "required": false,
+                "isSelected": true,
+                "isVisible": true
+            },
+            {
+                "id": "Assigned To",
+                "type": "text",
+                "label": "Assigned To",
+                "access": {
+                    "edit": false,
+                    "read": true
+                },
+                "required": false,
+                "isSelected": true,
+                "isVisible": true
+            }
+        ]
+    }
+]
+let ob = {
+    key: "",
+    isChecked: "",
+    option: []
+  }
+  let userPreferredList = a.map(item => {
+      return{
+      "key": item.key,
+      "isChecked" : item.isChecked,
+      "option" : item.options}
+    })
+console.log(JSON.stringify(userPreferredList))
 
 
 

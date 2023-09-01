@@ -1,11 +1,11 @@
 /**
  * in js there are 3 ways of declaring a variable uisng var, let and const
  * var are hoisted in js - means we can access it even before initializing it because they got the memory in global 
- * space or object because js works in that way
+ * space or global object because js works in that way
  * in case of let and const they are also  hoisted but in a diffrent memory space not in global memory or object
  * and we cannot acceess the object where let and cont are hoisted (Script object not part of global object)
  * the time between declaration and the initializing the let and const variable are in temporal dead zone
- * in case of let we can declare it and initialize its value later but const is strict than let we have to declare and initialize
+ * in case of let we can declare it and initialize its value later but const is strictier than let we have to declare and initialize
  * it then and there otherwise we will get syntex error
  */
 
@@ -23,9 +23,8 @@ var b =70; // this is fine
 let c=10;
 //let a  // not fine SyntaxError: Identifier 'a' has already been declared
 
-
-//console.log(a)
-const d = 80//const d   //
+//console.log(a) // 20
+const d = 80  //const d =   
 console.log(d) // SyntaxError: Missing initializer in const declaration
 
 
@@ -49,7 +48,7 @@ for(var i=0;i<5;i++){ // here i is a global variable
     }, 1000)
 }
 // how to print 0 1 2 3 4 using var only
-// so for that we need to used a another function which will immediately invoke, we will create a new scope for var so that each call back function reference a new variable
+// so for that we need to used a another function which will immediately invoke, we will create a new scope for var so that each callback function reference a new variable
 
 for(var i =0;i<5;i++){
     (
@@ -61,7 +60,7 @@ for(var i =0;i<5;i++){
     ) (i)
 }
 
-for(let i=0;i<4;i++){ // lwt create a new variable in every iteration 
+for(let i=0;i<4;i++){ // let create a new variable in every iteration 
     console.log("excuting in let ", i)
     setTimeout(()=>{
         console.log("excuting in setTimeOut let  ", i)
@@ -115,8 +114,8 @@ for(let i=0;i<4;i++){ // lwt create a new variable in every iteration
  * If we want to make value to immutable then we can use Object.freeze()
  * 
  * const person = Object.freeze({age: 20})
- * Object.freeze() is shallow - meaning that it w=freeze the property of the object not the property referring to object
- * let object = Object.freeze({
+ * Object.freeze() is shallow - meaning that it will freeze the property of the object not the property referring to object
+ * let company = Object.freeze({
  *    name: "company A",
  *    address: {
  *       street : "a",
