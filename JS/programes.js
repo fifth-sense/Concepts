@@ -104,11 +104,120 @@ function printArray( A, size)
 var arr = [ 12, 11, 13, 5, 6, 7 ];
 	var arr_size = arr.length;
 
-	console.log( "Given array is ");
-	printArray(arr, arr_size);
+	//console.log( "Given array is ");
+	//printArray(arr, arr_size);
 
 	mergeSort(arr, 0, arr_size - 1);
 
-	console.log( "Sorted array is ");
-	printArray(arr, arr_size);
+	//console.log( "Sorted array is ");
+	//printArray(arr, arr_size);
 
+//flatten array
+let arr1 = [1,[2,[3,4,5,[6,7],8],9],10];
+let arr2 = [
+    [1, 2],
+    [3, 4],
+    [5, 6],[7, 8, 9],
+    [10, 11, 12, 13, 14, 15]
+];
+//method 1
+let res =[];
+function flat(arr1){
+	for(let i=0;i<arr1.length;i++){
+		if(typeof arr1[i] == "number"){
+		   res.push(arr1[i])
+		}else{
+		   flat(arr1[i]);
+		}
+	}
+	return;
+}
+flat(arr1);
+//console.log(res)
+//method 2 using concat and apply
+let res2 = [].concat.apply([],arr2 );
+// console.log("flaten array",res2)
+
+//method 3  using spread operator
+let res3 = [].concat(...arr2)
+// console.log("flaten array",res3)
+
+//method 4 using reduce method
+
+let res4 = arr2.reduce((acc, currVal)=> {return acc.concat(currVal)}, [])
+// console.log("flaten array",res4);
+
+//using flat() method
+// it will take arr and an optional argument depth if we don't provide any it will take 1 
+let arr4 = [1, 2, [3, [4, 5, 6], 7], 8];
+// console.log(arr4.flat()) //[ 1, 2, 3, [ 4, 5, 6 ], 7, 8 ]
+// console.log(arr4.flat(2)) //[1, 2, 3, 4,5, 6, 7, 8 ]
+
+
+
+ //final unique from this array [1,3,3,2,6,3,4,5,5,6,6,7,7,8,8,8,9]
+ let array = [1,3,3,2,6,3,4,5,5,6,6,7,7,8,8,8,9];
+
+
+ 
+let ans2 = [...new Set(array)]
+//console.log(ans2);
+
+let p = array.filter((e,i,self) => {
+       return i==self.indexOf(e);
+    }
+)
+//console.log(p);
+ //perform destructing on this array 
+ const address = ["583, Margaret Street", "LOS ANGELES, CA", "USA"];
+ let x, y, rest;
+ [x,y, ...rest] = address;
+ //console.log(x);
+
+
+ //Q. create your own map function
+
+ let mapArray = [1,3,4,5]
+
+ Array.prototype.myMap = function(callback){
+	let resultArray = this;
+	for(let i=0;i<this.length;i++){
+		if(this[i] === undefined || this[i]==null){
+			break;
+		}
+		resultArray[i]=callback(this[i], i, this )
+	}
+	return resultArray;
+
+ }
+//  console.log(mapArray.myMap(function(val){
+// 	return val*2;
+//  }))
+//  console.log([1,2,3, null, undefined, 4].myMap(a => +a));
+//  console.log([1,2,3, null, undefined, 4].map(a => +a));
+//  console.log(["hey","hi", null, undefined, "bye"].myMap(a => +a));
+//  console.log(["hey","hi", null, undefined, "bye"].map(a => +a));
+
+//Q Your own Filter
+Array.prototype.myFilter = function(callback){
+
+	let filterArry =[];
+	for(let i=0;i<this.length;i++){
+		if(callback(this[i], i, this)){
+			filterArry.push(this[i])
+		}
+	}
+	return filterArry;
+
+}
+
+console.log([12, 34, 5, 67,8].myFilter(a=> a%2==0));
+
+Array.prototype.myReduce = function(callback, accumulator){
+	let res = accumulator;
+	for(let i =0;i<this.length;i++){
+		res = callback(res, this[i], i , this);
+	}
+	return res;
+}
+console.log([1, 2, 5].myReduce((a,v)=>a+v, 0))

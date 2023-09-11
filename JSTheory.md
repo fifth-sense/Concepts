@@ -1,4 +1,5 @@
-Q. difference amonge var, let and const
+
+Q. difference amonge var, let and constusing two method
 A. refer ES6->let-const-var.js file
 
 Q. difference between arrow function and normal function
@@ -18,7 +19,7 @@ A. Regular function
    memory assignment of regular function and arrow function are different regular function got stored as whole function as value but arrow function get undefined as value
 
   normal function can be hoisted but arrow function cannot
-  normal function can create its own this arrow function cannot arroew function  will refer that this before making arrpw function this was pointing
+  normal function can create its own this arrow function cannot arrow function  will refer that this before making arrow function this was pointing
   arrow function cannot be declared regular function can
   function declration***
        function print(){
@@ -58,7 +59,7 @@ Q. Primitive and non-primitive
     
 Q. Pass by Value pass by reference
 A. see Js folder for example
-   Pass by Value = In Pass by value we directly pass value of the variable as an aruments. so changes made inside the function doesnot change the original value
+   Pass by Value = In Pass by value we directly pass value of the variable as an arguments. so changes made inside the function doesnot change the original value
    Parameter passed as an  arguments creates its own copy of the passed valriable
 
    ex. 
@@ -129,8 +130,71 @@ A. see Js folder  for example
    currying
    setTimeout
 
-Q.
+Q. what is pure function 
+A. Pure function are those which will return same value if we pass same argument to the function
+   function calculate(price){
+      return price*0.5;
+   }
+   calulate(10); // if we pass 10 the functio always return 5 every time
+
+   what a pure function can't do or not allowed to do
+   Making an HTTP calls
+   mutating data
+   math.random()
+   Dom/Query manupulation
+   printing console or screen
+   getting current Time
+Q. Callback Promise Async/Await
+A. https://www.geeksforgeeks.org/difference-between-promise-and-async-await-in-node-js/
+A. Callback : callback fun are the func which we pass function as an arguments in an another func. As we know JS is a single threaded synchronous  programming lang. but using callback we can perform async task in js ex. are setTimeout, setInterval 
+   Promises: Promises help us to implemnet asynchronoud task in synchrounous way. mainly there are three state of a promise. pending, fullfilled and rejected
+
+   const promise = new Promise((resolve, rejec)=>{
+
+      if(true)
+      resolve();
+
+      else
+      reject()
+
+   })
+Async/Await: As we know JS is a non-blocking pgm lang. to block the code we can use async await.
+ suppose we are calling an API we can use asynch await.
+
+Generators: 
+
+Q. JavaScript (JS) is a programming language developed by Brendan Eich in 1995 while he was working at Netscape Communications. Since then, it has been widely adopted and is now used by millions of developers around the world to create interactive web pages, web applications, and mobile applications.  
+
+Q. How we can achieve encapsulation in js
+A. using closure (inner function can access var and func of its lexical scope)  and classes - in classes creating private variables _name: "hari"
+
+Q. Array methods
+A. Slice and Splice - 
+let arr = [1, 5,6,8,2,4,5,6]
+slice(optional start index, optional end index) -create a copy of an array and return a portion of an array. it will return a new array doesnot change the original array
+slice() // copy the whole array - [1, 5,6,8,2,4,5,6]
+slice(1) //  slice from index 1 // [ 5,6,8,2,4,5,6]
+slice(-2) // [5,6]
+if start parameter is greated than the last index of the array it will return empty
+slice(9) // []
+
+slice(2, 4) //[6,8]
+slice(-3)
+
+const food = ['pizza', 'cake', 'salad', 'cookie'];
+
+Splice - It will change the content of original array. used to add/remove element in existing array. and the return value will be the removed item in array
+Splice(start, optional delete count, optional item to be added)
+food.Splice(1, 0, 4) // 1 se 0 elemnt ko delete krk, 4 add krna h
+food.splice(2,1) // 
+console.log(food)// ['pizza', 'cake', 'cookie'];
+
+slice create a shallow copy of the original array, and return a portion of an array, but splice updated the original array
 
 
 
- 
+
+
+
+
+
