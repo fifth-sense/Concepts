@@ -1,3 +1,7 @@
+# What is React?
+  React is a JavaScript library for building interactive user interfaces.
+  By user interfaces, we mean the elements that users see and interact with on-screen.
+
 # Pure Component in React
 A. Pure component are those component which will not render itself if props or state are updated with same value. they play major role in app
    overall performance. because its reduces unneccessary re-render.
@@ -9,13 +13,17 @@ A. Pure component are those component which will not render itself if props or s
    Functional components do not enjoy the benefits of pure components which extends PureComponent class. b/c its not a class we can achieve similar functionality using memo in functional component
    Pure component in React are like pure functions and they return the same JSX for the same input given to them.
 
+   React.memo() is a higher-order component that takes a React component as its first argument and returns a pure React component.
+   React component type returned using React.memo() allows the renderer to render the component while memoizing the output.
+   React.memo() also works with components w using ReactDOMServer.
+
 # HOC
    higher-order component is a function that takes a component and returns a new component.
    Whereas a component transforms props into UI, a higher-order component transforms a component into another component.
    A higher-order component (HOC) is an advanced technique in React for reusing component logic. HOCs are not part of the React API, per se. They are a pattern that emerges from React’s compositional nature.
 A. when to use 
    Authentication:  writting authentication logic in every component we can have a login hoc which checks user is looged in or not
-   Logging: instead of writting logging logic in each cmponent we can have withLogger HOC so that every component will use and provide a consistent logging through out the app
+   Logging: instead of writting logging logic in each component we can have withLogger HOC so that every component will use and provide a consistent logging through out the app
    Styling and theme: You might have a design system with reusable styles and themes. You can create an HOC named withTheme that provides the necessary theme-related props to a component.
    https://www.freecodecamp.org/news/higher-order-components-in-react/
 
@@ -72,7 +80,7 @@ A. Code-Splitting is a feature supported by bundlers like Webpack, Rollup and Br
 
    * when using Babel you need to make sure that it is able to parse this dynamic import syntax if not then we add plugin @babel/plugin-syntax-dynamic-import
 
-# React.lazy()
+# React.lazy() https://react.dev/reference/react/lazy
 A. The React.lazy function lets you render a dynamic import as a regular component.
    Before:
    import {otherComp} from './OtherComp'
@@ -253,5 +261,53 @@ A. In the parent component, create a callback function. This callback function w
    Pass the callback function to the child as a props from the parent component.
    The child component calls the parent callback function using props and passes the data to the parent component.
 
-   
+# Memo
+A. 
+
+# What is the use of key atrribute?
+A. A “key” is a special string attribute you need to include when creating lists of elements in React. Keys are used in React to identify which items in the list are changed, updated, or deleted. Keys are used to give an identity to the elements in the lists
+
+# How to prevent re-rendering in react?
+A. memo, useMemo, useCallback, useRef, Pure Component(class)
+
+# JWT
+A. JWT is a token based stateless authentication mechanism.  Since it is a client-side based stateless session, server doesn't have to completely rely on a datastore(database) to save session information.
+
+# Synthetic Event
+A. Synthetic evenets are React way of handling dom events consistentely across the browsers and platforms
+ React Event system wraps native browsers event with a cross browser compatible interface and provide a unified way of handling events in react
+ synthetic events in React offer a performance-oriented and consistent way to handle events while abstracting away browser differences, resulting in a 
+ smoother and more predictable development experience.
+ * benefits of sythentic events
+   Performance: React uses a single event listener at the root of the document (event delegation), which means fewer event listeners are attached to 
+   individual elements. This optimizes performance by reducing memory usage and improving event handling efficiency.
+   Cross-Browser Compatibility: Synthetic events abstract away browser-specific event handling differences, ensuring consistent behavior across various 
+   browsers. Developers don't need to worry about writing browser-specific code for event handling.
+   Event Pooling: React uses an event pooling mechanism where event objects are reused to reduce memory consumption. This minimizes the overhead of  creating and garbage collecting numerous event objects during high-frequency events.
+   Normalized Properties: Synthetic events provide normalized properties across different browsers. This ensures that you have a consistent set of 
+   properties and methods available regardless of the browser being used.
+   Automatic Cleanup: React automatically handles event listeners' cleanup and unbinding when a component is unmounted. This prevents memory leaks and 
+   ensures proper resource management.
+   Ease of Use: Developers can work with event handling in React using familiar HTML event attributes (e.g., onClick, onChange) instead of dealing with
+   various browser-specific event registration methods.
+
+   Synthetic events combine the response of different browser's native events into one API, ensuring that the events are consistent across different browsers. The application is consistent regardless of the browser it is running in.
+
+   const Component = () => {
+    const handleClick = (e) => {
+    e.preventDefault(); // synthetic event
+    console.log("link clicked");
+    };
+    return <a onClick={(e) => handleClick}>Click me</a>;
+   };
+
+Why use Flux architecture?
+ Flux is a powerful architecture for managing state in ReactJS applications. By using a unidirectional data flow, centralized control, and immutable data, Flux helps keep your application's state management organized and maintainable.
+
+ # What is Next.js
+ Next.js is a popular open-source framework for building server-side rendered React applications. It was created by a software engineer at Zeit named Guillermo Rauch. He started working on the framework in 2016 and released the initial version later that year. Since then, Next.js has gained significant adoption and has been widely used by developers for building fast and scalable web applications. It provides features like automatic code splitting, server-side rendering, and static site generation, making it an excellent choice for building modern web applications.  
+
+ SEE this to understand DOM  https://nextjs.org/learn/foundations/from-javascript-to-react
+
+
 
