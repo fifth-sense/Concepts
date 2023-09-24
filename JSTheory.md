@@ -204,6 +204,9 @@ Performance - how to optimize your application for end-users.
 Scalability - how your application adapts as your team, data, and traffic grow.
 Developer Experience - your team’s experience building and maintaining your application.
 
+# What is difference between Vanilla JS and JS?
+JavaScript libraries provide ready-made functions and tools that developers can use to speed up web application development. Vanilla JavaScript, on the other hand, refers to the use of pure JavaScript code without any additional libraries or frameworks.
+
 
 
 

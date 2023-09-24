@@ -220,4 +220,44 @@ Array.prototype.myReduce = function(callback, accumulator){
 	}
 	return res;
 }
-console.log([1, 2, 5].myReduce((a,v)=>a+v, 0))
+//console.log([1, 2, 5].myReduce((a,v)=>a+v, 0))
+
+//print 1 after 1 sec 2 after 2 sec 3 after 3 sec till 5
+
+function printNumber(){
+	for(let i =1;i<=5;i++){ // if we use var i=1 then in that case it will print 6 6 6 6 6 because it store refrence of i on every iteration same reference being passed to settimeout  
+	setTimeout(()=>{
+		
+		console.log(i);
+		
+	}, i*1000)
+}
+}
+//printNumber() // 1 2 3 4 5
+
+//can you do it using var only - yes we have to create closure for it
+
+function printNumberUsingVar() {
+	for(var i=1;i<=5;i++){
+		function close(i){
+			setTimeout(()=>{
+              console.log(i)
+			}, i*1000)
+		}
+		close(i)
+	}
+}
+//printNumberUsingVar();
+
+function counter() {
+	var count = 0;
+	return function increment(){
+	count++;
+	console.log(count);
+	}
+	}
+	var counter1 = counter(); //counter function has closure with count var.
+	counter1(); //1  increments counter
+	var counter2 = counter();
+	counter2(); // 1 here counter2 is whole new copy of counter function and it
+	//wont impack the output of counter1
