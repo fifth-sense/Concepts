@@ -25,7 +25,8 @@ var user = {
   // }
   let result = {};
   function create(key, user){
-    let keys = Object.keys(user);
+    let keys = Object.keys(user); 
+    console.log("keys",keys)
     keys.forEach((ele)=>{
         if(typeof user[ele] !== 'object'){
             let objKey =  key + "_" + ele;

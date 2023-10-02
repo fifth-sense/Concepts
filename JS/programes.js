@@ -257,7 +257,34 @@ function counter() {
 	}
 	}
 	var counter1 = counter(); //counter function has closure with count var.
-	counter1(); //1  increments counter
+	//counter1(); //1  increments counter
 	var counter2 = counter();
-	counter2(); // 1 here counter2 is whole new copy of counter function and it
+	//counter2(); // 1 here counter2 is whole new copy of counter function and it
 	//wont impack the output of counter1
+
+//Event Listener:- We will create a button in html and attach event to it.
+//Let’s implement a increment counter button. Using global variable (not good as anyone can change it)
+// Another Example of callback
+function printStr(str, cb) {
+setTimeout(() => {
+console.log(str);
+cb();
+}, Math.floor(Math.random() * 100) + 1)
+}
+function printAll() {
+printStr("A", () => {
+printStr("B", () => {
+printStr("C", () => {})
+})
+})
+}
+//	printAll()
+// A B C // in order
+
+//how to find length of an object
+// use object.keys(obj).length
+let obj = {
+	a:1, b:2,c:3
+}
+console.log(Object.keys(obj).length, "length");
+

@@ -276,20 +276,14 @@ A. JWT is a token based stateless authentication mechanism.  Since it is a clien
 # Synthetic Event
 A. Synthetic evenets are React way of handling dom events consistentely across the browsers and platforms
  React Event system wraps native browsers event with a cross browser compatible interface and provide a unified way of handling events in react
- synthetic events in React offer a performance-oriented and consistent way to handle events while abstracting away browser differences, resulting in a 
- smoother and more predictable development experience.
+ synthetic events in React offer a performance-oriented and consistent way to handle events while abstracting away browser differences, resulting in a smoother and more predictable development experience.
  * benefits of sythentic events
-   Performance: React uses a single event listener at the root of the document (event delegation), which means fewer event listeners are attached to 
-   individual elements. This optimizes performance by reducing memory usage and improving event handling efficiency.
-   Cross-Browser Compatibility: Synthetic events abstract away browser-specific event handling differences, ensuring consistent behavior across various 
-   browsers. Developers don't need to worry about writing browser-specific code for event handling.
+   Performance: React uses a single event listener at the root of the document (event delegation), which means fewer event listeners are attached to individual elements. This optimizes performance by reducing memory usage and improving event handling efficiency.
+   Cross-Browser Compatibility: Synthetic events abstract away browser-specific event handling differences, ensuring consistent behavior across various browsers. Developers don't need to worry about writing browser-specific code for event handling.
    Event Pooling: React uses an event pooling mechanism where event objects are reused to reduce memory consumption. This minimizes the overhead of  creating and garbage collecting numerous event objects during high-frequency events.
-   Normalized Properties: Synthetic events provide normalized properties across different browsers. This ensures that you have a consistent set of 
-   properties and methods available regardless of the browser being used.
-   Automatic Cleanup: React automatically handles event listeners' cleanup and unbinding when a component is unmounted. This prevents memory leaks and 
-   ensures proper resource management.
-   Ease of Use: Developers can work with event handling in React using familiar HTML event attributes (e.g., onClick, onChange) instead of dealing with
-   various browser-specific event registration methods.
+   Normalized Properties: Synthetic events provide normalized properties across different browsers. This ensures that you have a consistent set of properties and methods available regardless of the browser being used.
+   Automatic Cleanup: React automatically handles event listeners' cleanup and unbinding when a component is unmounted. This prevents memory leaks and ensures proper resource management.
+   Ease of Use: Developers can work with event handling in React using familiar HTML event attributes (e.g., onClick, onChange) instead of dealing with various browser-specific event registration methods.
 
    Synthetic events combine the response of different browser's native events into one API, ensuring that the events are consistent across different browsers. The application is consistent regardless of the browser it is running in.
 
@@ -378,7 +372,7 @@ A. https://stackoverflow.com/questions/31687442/where-do-i-need-to-use-jwt
   Authorization: Bearer <token> // we can send our token header in this way adding Bearer+token
   If the token is sent in the Authorization header, Cross-Origin Resource Sharing (CORS) won't be an issue as it doesn't use cookies.
 
-   Application Client => Authorization server => Resorce server
+   Application Client => Authorization server => Resource server
 
   The application or client requests authorization to the authorization server. This is performed through one of the different authorization flows. For example, a typical OpenID Connect compliant web application will go through the /oauth/authorize endpoint using the authorization code flow.
   When the authorization is granted, the authorization server returns an access token to the application.
@@ -535,6 +529,11 @@ Use Memoization Libraries: Utilize memoization libraries like Reselect or re-res
 Optimize API Requests: Minimize the number of API requests by batching requests, caching responses, and using efficient data fetching strategies such as GraphQL.
 
 Testing and Profiling: Regularly test your application's performance and use profiling tools to identify and address bottlenecks.
+
+What is the use of derived state from props?
+🏋️♂️Why you should use Derive state in React and Why is ...
+Derived state comes into play when we need to calculate a value based on existing state or props. Instead of computing the derived value on every render, 
+we can calculate it only when the relevant state or prop values change.
 
 
 
