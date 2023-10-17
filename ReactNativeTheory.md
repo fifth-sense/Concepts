@@ -113,4 +113,6 @@ react-native link react-native-maps
 
 https://www.freecodecamp.org/news/how-to-integrate-maps-in-react-native-using-react-native-maps-5745490fe055/ - see this
 
+https://www.ideamotive.co/react-native/interview#senior - interview question
+
                                                                       

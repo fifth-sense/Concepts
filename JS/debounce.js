@@ -13,10 +13,8 @@ function getData(){
         clearTimeout(timer)
         timer = setTimeout(()=>{
             fn.apply(context, arg)
-        }, d)
-        
+        }, d) 
     }
-
  }
 
  let enhanced = debounce(getData, 2000);

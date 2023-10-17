@@ -428,7 +428,7 @@ let ans = dat.map((ele) => {
 
 let str = "mohit";
 let anss = str.split("").sort((a, b) => a.localeCompare(b));
-console.log(anss.join(""));
+//console.log(anss.join(""));
 
 let x = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 function getSum(current, total) {
@@ -440,13 +440,13 @@ console.log(sum);
 let arrr = [3, 4, 8, 1, 9, 16, 15]; //find value > 14
 //  console.log(arrr.find(x=>x>14));
 
-console.log(
-  arrr.some((x) => {
-    if (x > 14) {
-      return x;
-    }
-  })
-);
+// console.log(
+//   arrr.some((x) => {
+//     if (x > 14) {
+//       return x;
+//     }
+//   })
+// );
 
 function myFunction(a, b) {
   // let count = 0;
@@ -454,10 +454,111 @@ function myFunction(a, b) {
   // let ans = ar.map((e) => {
   //   if (e == a) count++;
   // });
-  return b.split(a).length-1;;
+  return b.split(a).length - 1;
 }
 
- 
-console.log(myFunction('m', 'how many times does the character occur in this sentence?'))
+//console.log(myFunction('m', 'how many times does the character occur in this sentence?'));
 
+let serverTree = {
+  address: "127.0.0.1",
+  hostname: "router",
+  left: {
+    b: "hello",
+    left: {
+      address: "address",
+      hostname: "host",
+    },
+  },
+  right: {
+    address: "111.0.0.01",
+    hostname: "ipv4",
+    right: {
+      address: "::",
+      hostname: "ipv6",
+    },
+  },
+};
 
+function findHost(tree, address) {
+  if (!tree) return null;
+  if (tree.address === address) return tree.hostname;
+  let lefttree = findHost(tree.left, address);
+  let righttree = findHost(tree.right, address);
+  return lefttree || righttree;
+}
+
+console.log("fiin", findHost(serverTree, "111.0.0.01"));
+
+//write a program to covert all first letter to capital and other as small
+
+let arr = ["david \tconvay", "Denis MAngT", "harry\t deN"]; // ["David Convay", "Denis Mangt", "Harry Den"]
+
+function firstUpperCase(name) {
+  let trimText = name.trim();
+  let first = trimText.charAt(0).toUpperCase();
+  let rest = trimText.slice(1).toLowerCase();
+  return first + rest;
+}
+function capitalize(arr) {
+  let res = arr.map((item) => {
+    let el = item.split(" ");
+    let first = firstUpperCase(el[0]);
+    let second = firstUpperCase(el[1]);
+    return first + " " + second;
+  });
+  return res;
+}
+let res = capitalize(arr);
+//console.log(res)
+// Write a JavaScript function that reverses a number.
+// Example x = 32243;
+// Expected Output : 34223
+
+function reverseNumber(x) {
+  let res = [];
+  while (x) {
+    let num = x % 10;
+    res.push(num);
+    x = Math.floor(x / 10);
+  }
+  return res.join("");
+}
+//console.log(reverseNumber(32243));
+
+//Write a JavaScript function that checks whether a passed string is a palindrome or not?
+
+function isPalindrome(str){
+  let n = str.length;
+  let l=0;let r=n-1;
+  while(l<r){
+    if(str[l++] !== str[r--])
+    return "No"
+  }
+  return "yes";
+}
+console.log(isPalindrome("kayak"));
+
+//Write a JavaScript function that generates all combinations of a string.
+//Example string : 'dog'
+//Expected Output : d,do,dog,o,og,g
+
+function generateAllCombination(str){
+  let result=[];
+  for(let i=0;i<str.length;i++){
+    for(let j=i+1;j<str.length+1;j++){
+      result.push(str.slice(i,j))
+    }
+  }
+  return result;
+}
+console.log(generateAllCombination("dog"))
+
+// Write a JavaScript function that returns a string that has letters in alphabetical order.
+// Example string : 'webmaster'
+// Expected Output : 'abeemrstw'
+
+function sortStrin(str){
+  return str.split("").sort().join("")
+  //return [...str].sort((a,b)=> a.localeCompare(b)).join("");
+}
+console.log("sorted::", sortStrin("knowledge"));

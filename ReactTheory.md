@@ -535,6 +535,117 @@ What is the use of derived state from props?
 Derived state comes into play when we need to calculate a value based on existing state or props. Instead of computing the derived value on every render, 
 we can calculate it only when the relevant state or prop values change.
 
+# React 18 New features
+  * Concurrency -> A mechanism which will give react the ability to prepare multiple version of UI at the same time
+    React uses sophisticated techniques in its internal implementation, like priority queues and multiple buffering.
+
+Concurrency is not a feature, per se. It’s a new behind-the-scenes mechanism that enables React to prepare multiple versions of your UI at the same time. You can think of concurrency as an implementation detail — it’s valuable because of the features that it unlocks. React uses sophisticated techniques in its internal implementation, like priority queues and multiple buffering.
+
+However, Concurrent React is more important than a typical implementation detail — it’s a foundational update to React’s core rendering model. So while it’s not super important to know how concurrency works, it may be worth knowing what it is at a high level.
+
+A key property of Concurrent React is that rendering is interruptible. When you first upgrade to React 18, before adding any concurrent features, updates are rendered the same as in previous versions of React — in a single, uninterrupted, synchronous transaction. With synchronous rendering, once an update starts rendering, nothing can interrupt it until the user can see the result on screen.
+
+In a concurrent render, this is not always the case. React may start rendering an update, pause in the middle, then continue later. It may even abandon an in-progress render altogether. React guarantees that the UI will appear consistent even if a render is interrupted. To do this, it waits to perform DOM mutations until the end, once the entire tree has been evaluated. With this capability, React can prepare new screens in the background without blocking the main thread. This means the UI can respond immediately to user input even if it’s in the middle of a large rendering task, creating a fluid user experience.
+
+Another example is reusable state. Concurrent React can remove sections of the UI from the screen, then add them back later while reusing the previous state. For example, when a user tabs away from a screen and back, React should be able to restore the previous screen in the same state it was in before. In an upcoming minor, we’re planning to add a new component called <Offscreen> that implements this pattern. Similarly, you’ll be able to use Offscreen to prepare new UI in the background so that it’s ready before the user reveals it.
+
+Concurrent rendering is a powerful new tool in React and most of our new features are built to take advantage of it, including Suspense, transitions, and streaming server rendering. But React 18 is just the beginning of what we aim to build on this new foundation.
+
+* Suspense in Data Framework
+  Suspense can be use to fetch asynchronous api call its just not bound to provide fallback ui to lazy load a component
+
+* Server Component
+  Server Components is an upcoming feature that allows developers to build apps that span the server and client, combining the rich interactivity of client-side apps with the improved performance of traditional server rendering. Server Components is not inherently coupled to Concurrent React, but it’s designed to work best with concurrent features like Suspense and streaming server rendering.
+
+# React 18 New Feature
+  # Automatic Batching:::: 
+  Batching is when React groups multiple state updates into a single re-render for better performance. Without automatic batching, we only batched updates inside React event handlers. Updates inside of promises, setTimeout, native event handlers, or any other event were not batched in React by default. With automatic batching, these updates will be batched automatically:
+
+  // Before: only React events were batched.
+  setTimeout(() => {
+  setCount(c => c + 1);
+  setFlag(f => !f);
+  // React will render twice, once for each state update (no batching)
+}, 1000);
+
+// After: updates inside of timeouts, promises,
+// native event handlers or any other event are batched.
+setTimeout(() => {
+  setCount(c => c + 1);
+  setFlag(f => !f);
+  // React will only re-render once at the end (that's batching!)
+}, 1000);
+
+  # Transition
+  Concept in React to distinguish between urgent and non-urgent updates
+  Urgent updates:: reflect direct interaction, like typing, clicking, pressing, and so on.
+  Transition updates:: transition the UI from one view to another.
+
+  import { startTransition } from 'react';
+
+  // Urgent: Show what was typed
+  setInputValue(input);
+
+  // Mark any state updates inside as transitions
+  startTransition(() => {
+    // Transition: Show the results
+    setSearchQuery(input);
+  });
+ Updates wrapped in startTransition are handled as non-urgent and will be interrupted if more urgent updates like clicks or key presses come in.
+
+  useTransition: a hook to start transitions, including a value to track the pending state.
+  startTransition: a method to start transitions when the hook cannot be used.
+
+  # Suspense
+   the only supported use case was code splitting with React.lazy, and it wasn’t supported at all when rendering on the server.In React 18, we’ve added support for Suspense on the server and expanded its capabilities using concurrent rendering features.
+
+   Suspense in React 18 works best when combined with the transition API. If you suspend during a transition, React will prevent already-visible content from being replaced by a fallback. Instead, React will delay the render until enough data has loaded to prevent a bad loading state.
+
+   # New Client and Server rendering API
+     * React Dom Client
+       createRoot:: replacement of ReactDOM.render user createRoot in react 18 instead
+       hydrateRoot:: New method to hydrate a server rendered application use it instead of ReactDOM.hydrate
+
+       Both createRoot and hydrateRoot accept a new option called onRecoverableError in case you want to be notified when React recovers from errors during rendering or hydration for logging. By default, React will use reportError, or console.error in the older browsers.
+    * React DOM Server
+  # New strict Mode Behaviour
+    In the future, we’d like to add a feature that allows React to add and remove sections of the UI while preserving state. For example, when a user tabs away from a screen and back, React should be able to immediately show the previous screen. To do this, React would unmount and remount trees using the same component state as before.
+    This feature will give React apps better performance out-of-the-box
+
+  * React mounts the component.
+  * Layout effects are created.
+  * Effects are created.
+* React simulates unmounting the component.
+  * Layout effects are destroyed.
+  * Effects are destroyed.
+* React simulates mounting the component with the previous state.
+  * Layout effects are created.
+  * Effects are created.
+
+  # New Hooks
+  * useId: new hook to generationg unique ids on both client and server 
+         ** useId is not for generating keys in a list. Keys should be generated from your data.
+
+  * useTransiotion and startTransition:: 
+    useTransition and startTransition let you mark some state updates as not urgent. Other state updates are considered urgent by default. React will allow urgent state updates (for example, updating a text input) to interrupt non-urgent state updates (for example, rendering a list of search results)
+
+  * useDeferredValue:: 
+    lets you defer re-rendering a non-urgent part of the tree. It is similar to debouncing, but has a few advantages compared to it. There is no fixed time delay, so React will attempt the deferred render right after the first render is reflected on the screen. The deferred render is interruptible and doesn’t block user input.
+
+  * useSyncExternalStore::
+    useSyncExternalStore is a new hook that allows external stores to support concurrent reads by forcing updates to the store to be synchronous. It removes the need for useEffect when implementing subscriptions to external data sources, and is recommended for any library that integrates with state external to React. See docs here.
+
+    Note::  useSyncExternalStore is intended to be used by libraries, not application code.
+
+  * useInsertionEffect 
+    useInsertionEffect is a new hook that allows CSS-in-JS libraries to address performance issues of injecting styles in render. Unless you’ve already built a CSS-in-JS library we don’t expect you to ever use this. This hook will run after the DOM is mutated, but before layout effects read the new layout. This solves an issue that already exists in React 17 and below, but is even more important in React 18 because React yields to the browser during concurrent rendering, giving it a chance to recalculate layout. See docs here.
+    
+    Note::  useInsertionEffect is intended to be used by libraries, not application code.
+
+  
+
+
+
 
 
 
