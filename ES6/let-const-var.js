@@ -1,7 +1,7 @@
 /**
  * in js there are 3 ways of declaring a variable uisng var, let and const
- * var are hoisted in js - means we can access it even before initializing it because they got the memory in global 
- * space or global object because js works in that way
+ * var variables are hoisted in js - means we can access it even before initializing it because they got the memory 
+ * in global space or global object because js works in that way
  * in case of let and const they are also  hoisted but in a diffrent memory space not in global memory or object
  * and we cannot acceess the object where let and cont are hoisted (Script object not part of global object)
  * the time between declaration and the initializing the let and const variable are in temporal dead zone
@@ -34,7 +34,7 @@ console.log(d) // SyntaxError: Missing initializer in const declaration
     let log = function(){
         console.log(message)
     }
-   // log(); // temporal deadzone we cannot access message untill ints initialze that is why calling log is girving error here
+   // log(); // temporal deadzone we cannot access message untill its initialze that is why calling log is giving error here
     let message = "hello";
     log(); // no error because message is initialized now
 }
@@ -73,8 +73,9 @@ for(let i=0;i<4;i++){ // let create a new variable in every iteration
  * variable scope
  * 
  * Variable scope
- *    var have global scope if define outside a function get attached to global object as property eg in JS global object is window so window.a and in node js global object is global 
- *    inside a function it has a block scope out side the function we cannot access it, they are hoisted in js
+ *    var have global scope if define outside a function get attached to global object as property eg in JS 
+ *    global object is window so window.a and in node js global object is global 
+ *    inside a function it has a block scope outside the function we cannot access it, they are hoisted in js
  * 
  *    Let - have block scope, they are not attached to global scope they are attched to script tag
      you cannot access them using window.c
@@ -102,7 +103,8 @@ for(let i=0;i<4;i++){ // let create a new variable in every iteration
  *   const a = 40 // error no reassignementy
  * 
  * Const and object - variable should be read only
- * The const keyword ensures that the variable it creates is read-only. However, it doesn’t mean that the actual value to which the const variable reference is immutable. 
+ * The const keyword ensures that the variable it creates is read-only. However, it doesn’t mean that the actual value 
+ * to which the const variable reference is immutable. 
  * For example:
  * const person = {age: 30};
  * person.age = 40 // ok
@@ -132,7 +134,7 @@ for(let i=0;i<4;i++){ // let create a new variable in every iteration
  *   color.pop(); //[]
  *   color = ["yellow"] // type error, we are reassigning color array
  * Const in for loop
- *   for ... of... object can use const but normal for loop cannot use const while itrating
+ *   for ... of... object can use const but normal for loop cannot use const while iterating
  *   let scores = [75, 80, 95];
      for (const score of scores) { // because it assigne a new const in each iteration
        console.log(score);

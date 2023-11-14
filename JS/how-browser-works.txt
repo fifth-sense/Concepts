@@ -1,4 +1,7 @@
-When you enter a valid URL in a web browser's address bar and press Enter, a series of actions occur under the hood to load and display the requested web page. This process involves multiple components, including the browser engine, networking stack, rendering engine, and JavaScript engine. Here's a deep dive into what happens when you enter a URL:
+When you enter a valid URL in a web browser's address bar and press Enter, a series of actions occur under the hood to
+ load and display the requested web page.
+ This process involves multiple components, including the browser engine, networking stack, 
+ rendering engine, and JavaScript engine. Here's a deep dive into what happens when you enter a URL:
 
 1. **User Input**: The user types a URL into the browser's address bar and presses Enter.
 
@@ -10,7 +13,8 @@ When you enter a valid URL in a web browser's address bar and press Enter, a ser
    - **Query**: Any query parameters included in the URL.
    - **Fragment**: An optional fragment identifier (often used for in-page links).
 
-3. **DNS Resolution**: The browser checks its local DNS cache to resolve the domain name (host) to an IP address. If the IP address is not found in the cache, it sends a DNS request to a DNS server to resolve the domain.
+3. **DNS Resolution**: The browser checks its local DNS cache to resolve the domain name (host) to an IP address. 
+If the IP address is not found in the cache, it sends a DNS request to a DNS server to resolve the domain.
 
 4. **Establishing a TCP Connection**: The browser establishes a TCP connection to the server's IP address, usually on port 80 (HTTP) or 443 (HTTPS).
 

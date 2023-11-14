@@ -1,0 +1,49 @@
+First, make sure you have styled-components installed. You can install it using npm or yarn:
+
+Copy code
+npm install styled-components
+Create a React component and use styled-components to style it:
+
+jsx
+Copy code
+import React from 'react';
+import styled from 'styled-components';
+
+// Create a styled button component
+const StyledButton = styled.button`
+  background-color: ${props => (props.primary ? 'blue' : 'gray')};
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  margin: 5px;
+
+  &:hover {
+    background-color: ${props => (props.primary ? 'darkblue' : 'lightgray')};
+  }
+`;
+
+const App = () => {
+  return (
+    <div>
+      <StyledButton>Normal Button</StyledButton>
+      <StyledButton primary>Primary Button</StyledButton>
+    </div>
+  );
+};
+
+export default App;
+In this example:
+
+We import the styled function from styled-components.
+We create a styled StyledButton component using tagged template literals. It defines the styles for the button, 
+and we can use props to conditionally change styles.We use this StyledButton component in the App component to render 
+two buttons with different styles based on the primary prop.
+Styled-components make it easy to define and manage component-specific styles, even with dynamic behavior based on props. 
+This example showcases the benefits of styled-components in a React application.
+
+
+
+

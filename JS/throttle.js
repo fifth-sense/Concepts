@@ -1,6 +1,6 @@
 let tcnt=0;
 let ncnt=0;
-
+//throttling is a technique that limits the number of times a function can be called over a given period of time. 
 function throttle(fn, d){
     let context = this;
     let arg = arguments;

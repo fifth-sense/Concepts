@@ -39,7 +39,8 @@ promise.then(res => console.log("response",res))
 
 //******* promise methods*/ - it takes array of promises and promise is settled when all the promises return true
 //******  Promise.all([promise1, promise2, promise3]).then(values => console.log(values )) 
-//******  Promise.allSettled([promise1, promise2]).then(results => {resul.forEach((result)=> console.log(result))}) ; the returns promise fullfilled when all the promises is settled means they have success or rejected
+//******  Promise.allSettled([promise1, promise2]).then(results => {resul.forEach((result)=> console.log(result))}) ; 
+//the returns promise fullfilled when all the promises is settled means they have success or rejected
 
 //Promise.any() - array of promises me koi ek bhil fullfilled to resolve but if all promises is rejected then it is rejected
 const promise1 = Promise.reject(0);

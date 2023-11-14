@@ -1,0 +1,10 @@
+// 3 question were asked
+// 1. riddle: how to measure 45 minutes while burning 2 ropes
+// 2. how to parse csv file and show the maximum of given columnname value fetch(csvfilename, colname) retunr max value for given col name
+// 3. how will you design ATM machine
+
+//riddle answer 
+//burn wire 1 from both the ends and parrallely burn wite 2 from one end wire 1 will completely burn in 30 min and 
+//half of the wire 2 will got burned at this time now burn remaining half wire 2 both the end in will fully burn in next 15 min and we are able to measure 45 min all set!!
+
+

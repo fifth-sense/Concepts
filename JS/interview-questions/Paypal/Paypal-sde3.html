@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>csv-reader</title>
+    </head>
+    <body>
+        <input type="file" id="csvFile" accept=".csv">
+        <pre id="jsonOutput"></pre>
+        <h2 id="max"></h2>
+        <script>
+            const csvFile  = document.getElementById("csvFile");
+            const jsonOutput = document.getElementById("jsonOutput");
+            const maximumPopulation = document.getElementById("max") 
+
+            csvFile.addEventListener("change", handleChange);
+
+            function handleChange(e){
+                const file = e.target.files[0];
+                const reader = new FileReader();
+                reader.onload = function(e){
+                    let content = e.target.result;
+                    const json = csvToJson(content);
+                    jsonOutput.textContent = JSON.stringify(json, null, 2);
+
+                    
+                }
+                reader.readAsText(file);
+            }
+            function csvToJson(csv, colName){
+                const lines = csv.split('\n');
+                console.log("lines--", lines)
+                const result = [];
+
+                const headers = lines[0].split(',');
+                console.log("headers--", headers)
+
+                for(let i =1;i<lines.length;i++){
+                    const obj = {};
+                    const currLine = lines[i].split(',');
+
+                    for(let j =0;j<headers.length;j++)
+                       obj[headers[j]] = currLine[j];
+
+                    result.push(obj);
+
+                }
+                let maxPopulation  = result.reduce((max,val,) => {
+                    const currPopulation = parseInt(val.population, 10);
+                    if(!isNaN(currPopulation) && currPopulation > max)
+                       return currPopulation
+                   
+                    return max;
+                }, 0)
+                max.textContent = maxPopulation
+                console.log(maxPopulation);
+
+               return result;
+                console.log("result===", result)
+            }
+        </script>
+    </body>
+</html>
+
+

@@ -1,3 +1,6 @@
+// debounce is a powerful technique used to optimize event handling by delaying the execution of a function until 
+//after a specified period of inactivity.
+
 let count=0;
 function getData(){
     console.log("fetch data"), count++;

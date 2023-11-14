@@ -1,3 +1,9 @@
+//Currying is a transformation of functions that translates a function from callable as f(a, b, c) into callable 
+//as f(a)(b)(c).
+
+//Currying doesn’t call a function. It just transforms it.
+
+
 function multiply(x){
     return function(y){
         return x*y
@@ -27,6 +33,26 @@ let join = (a, b, c) =>{
 let curriedJoin = curry(join);
 console.log(curriedJoin(13)(42,3))
 console.log(curriedJoin(13)(42)(3))
+//mul(2)(3)(4) =24
+
+function multiply(a,b,c){
+    return a*b*c;
+}
+function curry(fn){
+    const  helper = function (...args){
+        if(args.length>=fn.length){
+            return fn.apply(this, args);
+        }
+        else{
+            return (...args2) => helper.call(this, ...args, ...args2);
+        }
+    }
+    return helper;
+    
+}
+const curriedJoin1 = curry(multiply);
+console.log(curriedJoin1(3)(2,3))
+console.log(curriedJoin1(1)(2)(3))
 
 var x = 23;
 
@@ -39,3 +65,4 @@ var x = 23;
     var x = 21; //  defined here
   })();
 })();
+

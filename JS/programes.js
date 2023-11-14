@@ -180,7 +180,7 @@ let p = array.filter((e,i,self) => {
  let mapArray = [1,3,4,5]
 
  Array.prototype.myMap = function(callback){
-	let resultArray = this;
+	let resultArray = [];
 	for(let i=0;i<this.length;i++){
 		if(this[i] === undefined || this[i]==null){
 			break;
@@ -190,9 +190,9 @@ let p = array.filter((e,i,self) => {
 	return resultArray;
 
  }
-//  console.log(mapArray.myMap(function(val){
-// 	return val*2;
-//  }))
+ console.log(mapArray.myMap(function(val){
+	return val*2;
+ }))
 //  console.log([1,2,3, null, undefined, 4].myMap(a => +a));
 //  console.log([1,2,3, null, undefined, 4].map(a => +a));
 //  console.log(["hey","hi", null, undefined, "bye"].myMap(a => +a));
@@ -227,9 +227,7 @@ Array.prototype.myReduce = function(callback, accumulator){
 function printNumber(){
 	for(let i =1;i<=5;i++){ // if we use var i=1 then in that case it will print 6 6 6 6 6 because it store refrence of i on every iteration same reference being passed to settimeout  
 	setTimeout(()=>{
-		
 		console.log(i);
-		
 	}, i*1000)
 }
 }

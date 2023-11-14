@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    #box {
+      width: 100px;
+      height: 100px;
+      background-color: lightblue;
+      transition: all 0.3s; /* Adding a smooth transition for style changes */
+    }
+  </style>
+</head>
+<body>
+  <div id="box"></div>
+  <button id="changeColorBtn">Change Color</button>
+  <button id="changeSizeBtn">Change Size</button>
+
+  <script>
+    // Get references to the elements
+    const box = document.getElementById('box');
+    const changeColorBtn = document.getElementById('changeColorBtn');
+    const changeSizeBtn = document.getElementById('changeSizeBtn');
+
+    // Function to change the background color of the box
+    function changeColor() {
+      const newColor = getRandomColor();
+      box.style.backgroundColor = newColor;
+    }
+
+    // Function to change the size of the box
+    function changeSize() {
+      const newSize = Math.floor(Math.random() * 200 + 50); // Random size between 50 and 250 pixels
+      box.style.width = newSize + 'px';
+      box.style.height = newSize + 'px';
+    }
+
+    // Function to get a random color
+    function getRandomColor() {
+      const letters = '0123456789ABCDEF';
+      let color = '#';
+      for (let i = 0; i < 6; i++) {
+        color += letters[Math.floor(Math.random() * 16)];
+      }
+      return color;
+    }
+
+    // Add event listeners to the buttons
+    changeColorBtn.addEventListener('click', changeColor);
+    changeSizeBtn.addEventListener('click', changeSize);
+  </script>
+</body>
+</html>

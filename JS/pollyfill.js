@@ -22,4 +22,4 @@ Function.prototype.myBind = function(...args){
 }
 
 let printMyName2 = printname.myBind(name, "Banglore")
-printMyName("Karnatak", "India")
+printMyName2("Karnatak", "India")

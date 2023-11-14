@@ -21,6 +21,7 @@ document.querySelector("#child").addEventListener('click', ()=>{
     console.log("Child Clicked")
 });
 /**
- * event delegation is way of handling bubbling in JS apart from adding eventListner  in every item we will add event listner at top or parent of the element
+ * event delegation is way of handling bubbling in JS apart from adding eventListner  in every item we will add
+ *  event listner at top or parent of the element
  */
 

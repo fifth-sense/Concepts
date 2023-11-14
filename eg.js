@@ -551,14 +551,14 @@ function generateAllCombination(str){
   }
   return result;
 }
-console.log(generateAllCombination("dog"))
+console.log(generateAllCombination("dog"));
 
 // Write a JavaScript function that returns a string that has letters in alphabetical order.
 // Example string : 'webmaster'
 // Expected Output : 'abeemrstw'
 
 function sortStrin(str){
-  return str.split("").sort().join("")
+  return str.split("").sort().join("");
   //return [...str].sort((a,b)=> a.localeCompare(b)).join("");
 }
 console.log("sorted::", sortStrin("knowledge"));
