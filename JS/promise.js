@@ -4,7 +4,8 @@
  * A Promise is an object which represents the eventual completion or failure of an asynchronous operation in js
  * Or You can say
  * A promise is an object in js which tells about a value which is not currently available but its going to be available in future. 
- * it help JS to perform asynchronous  opertaion in synchronous way like API calls, waiting for user inputs, reading files without blocking the main thread
+ * it help JS to perform asynchronous  opertaion in synchronous way like API calls, waiting for user inputs, 
+ * reading files without blocking the main thread
  * 
  * A promise can be in three state
  * Pending: the initial state when promise is created and its is not resolved or rejectef yet

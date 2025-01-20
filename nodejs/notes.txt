@@ -1,0 +1,11 @@
+setImmediate():
+setImmediate Executes immediately after the current event loop iteration, making it ideal for time-sensitive tasks 
+without delay. It has higher priority than other I/O events and timers, potentially causing starvation of other tasks 
+due to its immediate execution.
+
+setTimeout():
+Executes after a specified delay (in milliseconds), making it suitable for implementing delays or timeouts in code. 
+It has a lower priority compared to setImmediate(), reducing the likelihood of starving other tasks in the event loop.
+
+What do u understands by callback and callback hell
+

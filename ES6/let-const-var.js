@@ -1,5 +1,5 @@
 /**
- * in js there are 3 ways of declaring a variable uisng var, let and const
+ * in js there are 3 ways of declaring a variable using var, let and const
  * var variables are hoisted in js - means we can access it even before initializing it because they got the memory 
  * in global space or global object because js works in that way
  * in case of let and const they are also  hoisted but in a diffrent memory space not in global memory or object
@@ -12,7 +12,7 @@
 //diffrenece 
 
 var a =20;
-var b =70; // this is fine
+var  b=70; // this is fine
 /**
  * Variables are declared using the let keyword are block-scoped, are not initialized to any value, and are not attached 
    to the global object.
@@ -20,7 +20,7 @@ var b =70; // this is fine
    A temporal dead zone of a variable declared using the let keyword starts from the block until the initialization 
    is evaluated.
  */
-let c=10;
+let a=10;
 //let a  // not fine SyntaxError: Identifier 'a' has already been declared
 
 //console.log(a) // 20
@@ -48,7 +48,8 @@ for(var i=0;i<5;i++){ // here i is a global variable
     }, 1000)
 }
 // how to print 0 1 2 3 4 using var only
-// so for that we need to used a another function which will immediately invoke, we will create a new scope for var so that each callback function reference a new variable
+// so for that we need to used a another function which will immediately invoke, we will create a new scope for var 
+//so that each callback function reference a new variable
 
 for(var i =0;i<5;i++){
     (
@@ -88,7 +89,8 @@ for(let i=0;i<4;i++){ // let create a new variable in every iteration
 
  * Temporal DeadZone
      The lifecycle of a variable happens in two phases 1. creation phase and 2 execution phase
-     in case of var in creation phase it got memory and get initialize with special keyword 'undefined' because of this also var are hoisted
+     in case of var in creation phase it got memory and get initialize with special keyword 'undefined' because 
+     of this also var are hoisted,
      got initialize with specified value in execution phase
     But in case of let in creation phase they got assigned the storage but not got initialized they will be in temporal dedzone we cannot access them 
     once in execution phase they got initialize with specified value    
