@@ -1,6 +1,6 @@
 //A closure in JavaScript is when a function "remembers" the variables from its outer scope even after the outer 
 //function has finished executing. Closures are commonly used for encapsulating functionality, creating private 
-//variables, and maintaining state.
+//variables, and maintaining state.//functun with its lexical scope forms a closure
 function x(){
     let a = 10;
     function y(){

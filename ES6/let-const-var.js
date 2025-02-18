@@ -11,10 +11,10 @@
 
 //diffrenece 
 
-var a =20;
-var  b=70; // this is fine
+var a = 20;
+var a = 70; // this is fine
 /**
- * Variables are declared using the let keyword are block-scoped, are not initialized to any value, and are not attached 
+ * Variables declared using the let keyword are block-scoped, and not initialized to any value, and are not attached 
    to the global object.
    Redeclaring a variable using the let keyword will cause an error.
    A temporal dead zone of a variable declared using the let keyword starts from the block until the initialization 
@@ -59,13 +59,13 @@ for(var i =0;i<5;i++){
             }, 1000)
         }
     ) (i)
-}
+}//0 1 2 3 4 
 
 for(let i=0;i<4;i++){ // let create a new variable in every iteration 
     console.log("excuting in let ", i)
     setTimeout(()=>{
         console.log("excuting in setTimeOut let  ", i)
-        console.log(i); // 0 1 2 3 4  because its declared as let 
+        console.log(i); // 0 1 2 3   because its declared as let 
     }, 1000)
 }
 

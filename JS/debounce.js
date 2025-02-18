@@ -1,5 +1,5 @@
-// debounce is a powerful technique used to optimize event handling by delaying the execution of a function until 
-//after a specified period of inactivity.
+// debounce is a powerful technique used to optimize event handling by delaying the execution of a 
+// function until after a specified period of inactivity.
 
 let count=0;
 function getData(){
@@ -22,4 +22,15 @@ function getData(){
 
  let enhanced = debounce(getData, 2000);
  enhanced();
+
+ function debounce(fn, d){
+    let timer;
+    return function(){
+        let arg = arguments;
+        clearTimeout(timer);
+        timer = setTimeout(()=>{
+            fn.apply(this, arg);
+        }, d)
+    }
+ }
 

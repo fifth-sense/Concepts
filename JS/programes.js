@@ -174,6 +174,15 @@ let p = array.filter((e,i,self) => {
  [x,y, ...rest] = address;
  //console.log(x);
 
+ // custom bind method
+ Function.prototype.myBind = function(...args){
+    let context = this;
+    let param = args.slice(1);
+    return function(...args2){
+        context.apply(args[0], [...param, ...args2])
+    }
+
+}
 
  //Q. create your own map function
 

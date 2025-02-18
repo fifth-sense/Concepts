@@ -104,7 +104,7 @@ Pause the action or even stop it entirely
 
  # Flow of Redux
  -> in initial setup redux create a store with root reducer, the store calls the reducer with initial state and action, after any update like user click on something, 
-    The  app code dispatches an action to the Redux store, like dispatch({type: 'counter/incremented'}). then the store run the reducer function with previous state and current action and return the new state, the stores notify all part of the ui that state has updated, the compinent got the updated state and re-renders with the updated states
+    The  app code dispatches an action to the Redux store, like dispatch({type: 'counter/incremented'}). then the store run the reducer function with previous state and current action and return the new state, the stores notify all part of the ui that state has updated, the component got the updated state and re-renders with the updated states
  # Can we have multiple reducers in app - yes how and explain wha happens in background
  A. yes, we can have multiple reducers but while creating the action we can only pass one reducer which is root reducers so we can have multiple reducers and then we can combine all the reducers with utility function provided by redux which is CombineReducers({todos: todoReducer}) have them inside our rootreducer and then that root reducer we can pass to store.
  import { combineReducers } from 'redux'

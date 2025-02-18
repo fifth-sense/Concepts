@@ -35,7 +35,7 @@ A. when to use
 
 # What is Vurtual DOM
 A. A virtual dom is the lightweight copy of the original dom. Real Dom is the tree based representation of Html element. In React JS, every DOM element has a corresponding Virtual DOM Object.- the only difference is  that in DOM object where we can directly change what is on the screen, we cannot do that for the virtual DOM.
-React uses Virtual DOM exists which is like a lightweight copy of the actual DOM(a virtual representation of the DOM). So for every object that exists in the original DOM, there is an object for that in React Virtual DOM. It is exactly the same, but it does not have the power to directly change the layout of the document
+React uses Virtual DOM which is like a lightweight copy of the actual DOM(a virtual representation of the DOM). So for every object that exists in the original DOM, there is an object for that in React Virtual DOM. It is exactly the same, but it does not have the power to directly change the layout of the document
 A. https://www.geeksforgeeks.org/reactjs-virtual-dom/
 
 Q. Controlled and uncontrolled component
@@ -641,6 +641,62 @@ setTimeout(() => {
     useInsertionEffect is a new hook that allows CSS-in-JS libraries to address performance issues of injecting styles in render. Unless you’ve already built a CSS-in-JS library we don’t expect you to ever use this. This hook will run after the DOM is mutated, but before layout effects read the new layout. This solves an issue that already exists in React 17 and below, but is even more important in React 18 because React yields to the browser during concurrent rendering, giving it a chance to recalculate layout. See docs here.
     
     Note::  useInsertionEffect is intended to be used by libraries, not application code.
+
+
+1. What is React?
+2. What is useMemo ?
+3. What are the features of React ?
+4. What is JSX ?
+5. What is DOM ?
+6. What is Virtual Dom ?
+7. What is component life cycle of React class component ?
+8. What are fragments in react ?
+9. What are props in react ?
+10. What are synthetic events in react ?
+11. What are the difference between Package.json and Package.lock.json ?
+12. What are the differences between client side and server side rendering ?
+13. What is state in Reactjs?
+14. What are props ?
+15. What are the differences between State and Props in react ?
+16. What is props drilling ?
+17. What are the disadvantages of props drilling and How we can avoid props drilling ?
+18. What are Pure components in React ?
+19. What are Ref’s in React?
+20. What is meant by forward ref ?
+21. What are Error boundaries ?
+22. What are Higher order components in react ?
+23. What are the differences between controlled and uncontrolled components ? 
+24. What is useCallback ?
+25. What are the differences between useMemo and useCallback ?
+26. What are keys in React ?
+27. What is Lazy loading in React ?
+28. What is suspense in React ?
+29. What are custom hooks ?
+30. What is useReducer hook ?
+31. What are Portals in react ?
+32. What is context in react ?
+33. Practical question: Give an example of context api usage ?
+34. What is the purpose of callback function as an argument of setState()?
+35. Practical question: create a custom hook for increment/decrement counter ?
+36. Which lifecycle hooks in class component are replaced with useEffect in functional components ?
+37. What is Strict mode in react ?
+38. What are the different ways to pass data from child component to parent component in react ?
+39. Practical question: How to send data from child to parent using callback functions ?
+40. Practical question: How to send the data from child component to parent using useRef ?
+41. How do you optimize your react application ?
+42. How would you consume a RESTful JSON API in reactjs?
+43. different design patterns used in react?
+44. context api vs redux
+45. prop types in react(How to apply validation on props in react)
+46. What are React Mixins ?
+47. what are the different hooks you have used ?
+48. What are render props in react ?
+49. What are the different types of exports and imports ?
+50. What are the differences between create element vs clone element in react
+51. When to use useState and useReducer
+52. What is flushSync in react
+53. What are protected routes in react
+54. What is react-router
 
     
 

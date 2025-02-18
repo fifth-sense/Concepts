@@ -95,7 +95,8 @@ function customPromiseAll(iterable){
         result[i] = res ;
         count++;
         if(count === iterable.length)
-        resolve(result);})
+        resolve(result);
+      })
       .catch((e) => reject(e));
       
     }

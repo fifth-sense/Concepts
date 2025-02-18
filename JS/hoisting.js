@@ -1,10 +1,12 @@
 /**
- *  hoisting is a concept in javascript using which we can access functiona and variables even without initialising it
- * this concept of hoisting lies in the memory creation phase of javascript
- * so as we all know javascript is a single threaded synchronous language. and whenever a js code a global execution context 
- * is got created execution starts with two phases first phase is memory creation phase where js assign memory to all vars and 
- * function in case variable its assigned a special value undefined in case of proper function it will take the functions as its
- * value, because of this hoisting happens in js
+ * hoisting is a concept in javascript using which we can access function and variables even without 
+ * initialising it this concept of hoisting lies in the memory creation phase of javascript
+ * so as we all know javascript is a single threaded synchronous language. and whenever a js code runs a  
+ * global execution context got created, execution starts with two phases first phase is memory 
+ * creation phase where js assign memory to all vars and function in case variable its assigned a 
+ * special value undefined in case of proper function it will take the functions as its value, because 
+ * of this hoisting happens in js. its happens because of js assign memory to its variable and function whitout
+ *  accessing its actual value
  * examples....
  * 
  * 
@@ -32,5 +34,5 @@ const p = () =>{
     console.log("calling for p");
 }
 
-// if we remove x at line 21 then in that case will give error like x is not defined
+// if we remove x at line 23 then in that case will give error like x is not defined
 // y and p is treated a variable in js only traditional way of calling a function will have a whole function as value in memory phase
