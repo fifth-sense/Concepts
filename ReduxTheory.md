@@ -144,7 +144,7 @@ Parallelization and memoization: Because pure functions have no side effects, th
 
 To summarize, reducers are required to be pure functions to ensure predictable and reliable state management in libraries like Redux. This purity enables better testability, debugging capabilities, and helps maintain the integrity of the application's state.
 
- # why atete in immutable
+ # why state in immutable
  In Redux, state is typically treated as immutable for several important reasons:
 
 1. Predictable Updates: When the state is immutable, it becomes predictable. Given a specific state and an action, you can reliably determine the new state. This predictability is crucial for debugging and understanding how changes to the state occur in response to actions.
@@ -293,4 +293,14 @@ console.log('Updated State:', updatedState);
 By using `applyMiddleware`, you can easily compose and add multiple middleware functions to your Redux store, allowing you to customize the behavior of your application's state management. Just ensure that you order the middleware functions appropriately, as they will be executed in the order in which you pass them to `applyMiddleware`.
  # alternative of redux
  context api, mobx, recoil, zustznd
+
+Feature	            Redux	            MobX
+Setup Complexity	  More boilerplate	            Less code
+State Management	  Immutable, actions            modify state	Mutable, directly modifying state
+Performance	        Efficient but re-renders more	
+             Optimized with fine-grained reactivity
+Best For	     Large apps with strict control	           Small to medium apps, real-time updates
+Final Thoughts
+Use Redux if you need strict control over state and predictable behavior.
+Use MobX if you want less boilerplate and an easier approach.
 

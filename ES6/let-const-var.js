@@ -24,8 +24,8 @@ let a=10;
 //let a  // not fine SyntaxError: Identifier 'a' has already been declared
 
 //console.log(a) // 20
-const d = 80  //const d =   
-console.log(d) // SyntaxError: Missing initializer in const declaration
+const d  //const d = 60   // SyntaxError: Missing initializer in const declaration
+console.log(d) 
 
 
 //temporal deadzone = The temporal death zone prevents you from accidentally referencing a variable before its declaration.
@@ -48,8 +48,8 @@ for(var i=0;i<5;i++){ // here i is a global variable
     }, 1000)
 }
 // how to print 0 1 2 3 4 using var only
-// so for that we need to used a another function which will immediately invoke, we will create a new scope for var 
-//so that each callback function reference a new variable
+// so for that we need to use a another function which will immediately invoke, we will create a new scope for var 
+//so that each callback function reference a new variable - basically creating a closure for i
 
 for(var i =0;i<5;i++){
     (
@@ -88,7 +88,7 @@ for(let i=0;i<4;i++){ // let create a new variable in every iteration
      let a  // error
 
  * Temporal DeadZone
-     The lifecycle of a variable happens in two phases 1. creation phase and 2 execution phase
+     The lifecycle of a variable happens in two phases 1. creation phase and 2. execution phase
      in case of var in creation phase it got memory and get initialize with special keyword 'undefined' because 
      of this also var are hoisted,
      got initialize with specified value in execution phase

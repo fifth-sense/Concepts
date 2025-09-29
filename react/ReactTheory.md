@@ -630,7 +630,7 @@ setTimeout(() => {
     useTransition and startTransition let you mark some state updates as not urgent. Other state updates are considered urgent by default. React will allow urgent state updates (for example, updating a text input) to interrupt non-urgent state updates (for example, rendering a list of search results)
 
   * useDeferredValue:: 
-    lets you defer re-rendering a non-urgent part of the tree. It is similar to debouncing, but has a few advantages compared to it. There is no fixed time delay, so React will attempt the deferred render right after the first render is reflected on the screen. The deferred render is interruptible and doesn’t block user input.
+    lets you defer re-rendering a non-urgent part of the tree. It is similar to debouncing, but has a few advantages compared to it. There is no fixed time delay, so React will attempt the deferred render right after the first rende r is reflected on the screen. The deferred render is interruptible and doesn’t block user input.
 
   * useSyncExternalStore::
     useSyncExternalStore is a new hook that allows external stores to support concurrent reads by forcing updates to the store to be synchronous. It removes the need for useEffect when implementing subscriptions to external data sources, and is recommended for any library that integrates with state external to React. See docs here.
@@ -697,6 +697,288 @@ setTimeout(() => {
 52. What is flushSync in react
 53. What are protected routes in react
 54. What is react-router
+
+Storybook is an open-source tool used for building, documenting, and testing UI components in isolation. It allows developers to create and showcase individual components without relying on the rest of the application.
+
+✅ Why Use Storybook?
+Component Isolation: You can develop components independently without running the entire app.
+Visual Documentation: Components are displayed in an organized catalog with their different states.
+Testing UI Variants: Easily test how components behave with different props, themes, and scenarios.
+Collaboration: Designers, developers, and product managers can review and provide feedback without accessing the codebase.
+✅ Key Features of Storybook
+Component Playground: Provides a live UI environment for testing components.
+Addons: Enhance Storybook with features like accessibility testing, responsive views, and performance checks.
+Theming: Test your components with multiple themes or design systems.
+Snapshots & Visual Testing: Capture screenshots of components for visual regression testing.
+✅ Example: How to Set Up Storybook
+You can install Storybook in a React project using the following commands:
+
+bash
+Copy
+Edit
+npx storybook@latest init
+This will configure Storybook for your project.
+
+✅ Example: Creating a Story
+Here’s how you might create a Storybook for a simple Button component:
+
+Button Component (Button.jsx)
+
+jsx
+Copy
+Edit
+import React from 'react';
+
+export const Button = ({ label, onClick }) => {
+  return <button onClick={onClick}>{label}</button>;
+};
+Story (Button.stories.js)
+
+jsx
+Copy
+Edit
+import React from 'react';
+import { Button } from './Button';
+
+export default {
+  title: 'Example/Button',
+  component: Button,
+};
+
+const Template = (args) => <Button {...args} />;
+
+export const Primary = Template.bind({});
+Primary.args = {
+  label: 'Click Me',
+  onClick: () => alert('Button Clicked!'),
+};
+You can view the button by running:
+bash
+Copy
+Edit
+npm run storybook
+Open http://localhost:6006 to see your component live.
+✅ When Should You Use Storybook?
+When building design systems or reusable components.
+For visual testing and detecting UI issues early.
+During collaboration between designers and developers.
+
+Sure! Let’s dive deep into **security features of React**, from beginner to advanced level, including best practices, pros & cons, and practical examples.
+
+---
+
+## 🧩 **1. Introduction to Security in React**
+
+React is a frontend library, and **frontend = inherently insecure** if not handled properly. So while React **mitigates many risks by design**, developers must still proactively ensure app security.
+
+### ✅ React’s Role in Security:
+
+* React **escapes values by default** to prevent XSS.
+* React **does not provide built-in protection** against CSRF or backend attacks — these are **backend responsibilities**.
+
+---
+
+## 🛡️ **2. Common Security Vulnerabilities in React**
+
+| Vulnerability                     | Description                                                  |
+| --------------------------------- | ------------------------------------------------------------ |
+| XSS (Cross-site scripting)        | Injecting malicious scripts via user input.                  |
+| CSRF (Cross-site request forgery) | Unauthorized requests from another site.                     |
+| Insecure Deserialization          | Parsing user-supplied JSON objects insecurely.               |
+| Open Redirects                    | Redirecting users to malicious URLs using unvalidated input. |
+| Leaking Sensitive Data            | Displaying tokens, credentials, etc. in frontend code.       |
+
+---
+
+## 🔰 **3. Beginner-Level Security Practices**
+
+### 3.1 ✅ **Avoid `dangerouslySetInnerHTML`**
+
+```js
+// ❌ Dangerous
+<div dangerouslySetInnerHTML={{ __html: userInput }} />
+
+// ✅ Safe alternative
+<p>{userInput}</p> // React escapes it by default
+```
+
+**Why?** It bypasses React’s built-in escaping and opens doors to XSS.
+
+---
+
+### 3.2 ✅ **Escape/Validate User Inputs**
+
+Use libraries like DOMPurify if you **must** use HTML from unknown sources:
+
+```bash
+npm install dompurify
+```
+
+```js
+import DOMPurify from 'dompurify';
+
+<div dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(userInput) }} />
+```
+
+---
+
+### 3.3 ✅ **Use HTTPS Always**
+
+* Avoid loading external scripts, APIs, or images via `http://`.
+* Use HTTPS for all network requests.
+
+---
+
+## 🧑‍💻 **4. Intermediate Practices**
+
+### 4.1 ✅ **Store tokens securely**
+
+Never store sensitive tokens in `localStorage` (vulnerable to XSS). Prefer:
+
+* `HttpOnly` Cookies for access/refresh tokens
+* `sessionStorage` (short-term if you **must**)
+
+```js
+// ❌ BAD
+localStorage.setItem('token', accessToken)
+
+// ✅ BETTER (server sets HttpOnly cookie)
+res.cookie('token', token, { httpOnly: true, secure: true })
+```
+
+---
+
+### 4.2 ✅ **Avoid exposing sensitive env variables**
+
+Only variables prefixed with `REACT_APP_` are exposed.
+
+```env
+REACT_APP_API_URL=https://api.example.com
+```
+
+### 4.3 ✅ **Use `Content Security Policy (CSP)`**
+
+Prevent injection attacks with headers like:
+
+```http
+Content-Security-Policy: default-src 'self'; script-src 'self'
+```
+
+---
+
+### 4.4 ✅ **Prevent CSRF (backend-controlled)**
+
+React doesn't handle this directly — use anti-CSRF tokens with secure cookies.
+
+---
+
+## 🧠 **5. Advanced-Level Security Features**
+
+### 5.1 ✅ **Strict CSP + Trusted Types**
+
+**Trusted Types** prevent DOM-based XSS by locking down `innerHTML`.
+
+```js
+// CSP Header Example
+Content-Security-Policy: require-trusted-types-for 'script'; trusted-types default
+```
+
+---
+
+### 5.2 ✅ **Code Splitting to avoid exposing all logic**
+
+```js
+// lazy loaded components
+const AdminPanel = React.lazy(() => import('./AdminPanel'));
+```
+
+Reduces surface area for reverse engineering.
+
+---
+
+### 5.3 ✅ **Obfuscate frontend code for production**
+
+Use Webpack’s Terser Plugin or tools like [JavaScript Obfuscator](https://obfuscator.io/)
+
+---
+
+### 5.4 ✅ **Protect React DevTools leakage**
+
+Hide React DevTools in production by disabling development builds.
+
+```js
+if (process.env.NODE_ENV !== "development") {
+  if (typeof window.__REACT_DEVTOOLS_GLOBAL_HOOK__ === "object") {
+    for (let [key, value] of Object.entries(window.__REACT_DEVTOOLS_GLOBAL_HOOK__)) {
+      window.__REACT_DEVTOOLS_GLOBAL_HOOK__[key] =
+        typeof value === "function" ? () => {} : null;
+    }
+  }
+}
+```
+
+---
+
+## 🧪 **6. Practical Security Use Case**
+
+### Use Case: Secure Form Submission with Token
+
+```js
+import axios from 'axios';
+
+const handleSubmit = async () => {
+  const token = sessionStorage.getItem('token'); // Not ideal for long term
+  await axios.post('/api/form', data, {
+    headers: {
+      Authorization: `Bearer ${token}`
+    }
+  });
+};
+```
+
+* ✅ Tokens not exposed in URL
+* ✅ Uses Authorization headers
+* ✅ No user input directly rendered
+
+---
+
+## ✅ Pros of React Security Features
+
+| Pros                    | Description                                                 |
+| ----------------------- | ----------------------------------------------------------- |
+| Automatic escaping      | Prevents most basic XSS out of the box                      |
+| Component encapsulation | Reduces cross-component data leaks                          |
+| Rich ecosystem          | Libraries like DOMPurify, Helmet, Axios handle security     |
+| Declarative nature      | Makes it easier to spot unintentional logic vulnerabilities |
+
+---
+
+## ⚠️ Cons / Gotchas
+
+| Cons                                       | Description                                              |
+| ------------------------------------------ | -------------------------------------------------------- |
+| Frontend-only, no backend protection       | You must secure backend (CSRF, auth, DB injection, etc.) |
+| Easy to misuse (`dangerouslySetInnerHTML`) | Can bypass protections                                   |
+| LocalStorage/token exposure                | Still vulnerable to XSS if tokens are stored poorly      |
+
+---
+
+## 🧠 Summary Checklist for Secure React Apps
+
+| ✅ To-Do                            | 🔒 Description             |
+| ---------------------------------- | -------------------------- |
+| 🔐 Avoid `dangerouslySetInnerHTML` | or sanitize with DOMPurify |
+| 🔐 Secure token handling           | Prefer HttpOnly cookies    |
+| 🔐 HTTPS for all resources         | API, images, links         |
+| 🔐 Use CSP headers                 | In server config           |
+| 🔐 Input validation/sanitization   | On frontend and backend    |
+| 🔐 Hide source maps/devtools       | In production builds       |
+| 🔐 Keep dependencies updated       | Run `npm audit` regularly  |
+
+---
+
+
+
 
     
 

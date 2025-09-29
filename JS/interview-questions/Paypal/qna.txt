@@ -4,7 +4,8 @@
 // 3. how will you design ATM machine
 
 //riddle answer 
-//burn wire 1 from both the ends and parrallely burn wite 2 from one end wire 1 will completely burn in 30 min and 
-//half of the wire 2 will got burned at this time now burn remaining half wire 2 both the end in will fully burn in next 15 min and we are able to measure 45 min all set!!
+//burn wire 1 from both the ends and parrallely burn wire 2 from one end wire 1 will completely burn in 30 min and 
+//half of the wire 2 will got burned at this time now burn remaining half wire 2 both the end in will fully burn in 
+next 15 min and we are able to measure 45 min all set!!
 
 

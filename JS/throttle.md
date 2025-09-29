@@ -105,12 +105,17 @@ window.addEventListener("scroll", handleScroll);
 
 ### **Key Differences**
 
-| **Feature**            | **Debounce**                                         | **Throttle**                                         |
+| **Feature**            
+| **Debounce**                                         | **Throttle**                                         |
 |-------------------------|-----------------------------------------------------|-----------------------------------------------------|
-| **Execution Timing**    | Executes **after the event stops** firing.           | Executes **at regular intervals** while the event fires. |
-| **Use Case**            | Actions that happen after user inactivity (e.g., search input). | Actions that need periodic updates (e.g., scrolling). |
-| **Control**             | Delays the execution until the event stops.          | Limits the execution to once per interval.           |
-| **Example Use Cases**   | Search bar, form validation, resizing windows.       | Scrolling, resizing, button clicks, API polling.     |
+| **Execution Timing**    
+| Executes **after the event stops** firing.           | Executes **at regular intervals** while the event fires. |
+| **Use Case**            
+| Actions that happen after user inactivity (e.g., search input). | Actions that need periodic updates (e.g., scrolling). |
+| **Control**             
+| Delays the execution until the event stops.          | Limits the execution to once per interval.           |
+| **Example Use Cases**   
+| Search bar, form validation, resizing windows.       | Scrolling, resizing, button clicks, API polling.     |
 
 ---
 

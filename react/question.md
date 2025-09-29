@@ -136,3 +136,29 @@ React
 9. Security 
 10. Improving perfomance 
 11. Memory leaks
+
+
+
+Top 20 Most Common React Frontend Interview Questions (2025 Edition)
+1. How do you send data from a parent component to a child component?
+2. How do you call a parent component method from a child component?
+3. How do you access a DOM element in React?
+4. How to conditionally render elements or text in React?
+5 .How to change styles based on a condition?
+6. How to show and hide data conditionally?
+7. How to implement debouncing in React?
+8. How to fetch data from an API and display it in a component?
+9. How to re-render a component on value change?
+10. How to call a method immediately after state updates or a component rerenders?
+11. How to force a component to rerender without using useState?
+12. Explain an example of optimization using useMemo.
+13. Explain an example of optimization using useCallbac.
+14. Which lifecycle methods in class components are replaced by useEffect in  functional components?
+15. How to share data between components using Context API?
+16. How do you create a custom hook in React?
+17. How do you create a lazy-loaded component?
+18. How do you build a pagination component?
+19. How do you safeguard your React application?
+20. What’s the difference between a controlled and uncontrolled component, and how do you implement them?
+ My biggest takeaway: Most interviewers don’t just want textbook answers — they want to see how you’d apply these concepts in real-world scenarios.
+ So don’t just read these — practice building small components around each.

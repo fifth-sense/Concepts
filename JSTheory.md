@@ -19,7 +19,8 @@ A. Regular function
    memory assignment of regular function and arrow function are different regular function got stored as whole function as value but arrow function get undefined as value
 
   normal function can be hoisted but arrow function cannot
-  normal function can create its own this arrow function cannot arrow function  will refer that this before making arrow function this was pointing
+  normal function can create its own this arrow function cannot 
+  arrow function  will refer that this before making arrow function this was pointing
   arrow function cannot be declared regular function can
   function declration***
        function print(){
@@ -77,7 +78,7 @@ A. see Js folder for example
 
   Pass by reference
   Pass by references, function is called by passing refrence/address of the  variable as an arguments. they are mostly non-primitive
-  updating them insude function will directly update the original value
+  updating them inside function will directly update the original value
   function doesnot create there own copy inside function
   array and object follows pass by refrences in js
   Ex. 
@@ -122,7 +123,7 @@ A. see Js folder  for example
    x();
 
    Use of Closure
-   Module design patter
+   Module design pattern
    memoization
    function like once // it will just execute once
    maintaining state in async world

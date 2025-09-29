@@ -1,31 +1,6 @@
 # key difference between type Aliases and interface
 Type aliases and interfaces are very similar, and in many cases you can choose between them freely. Almost all features of an interface are available in type, the key distinction is that a type cannot be re-opened to add new properties vs an interface which is always extendable.
 
-Interface	Type
-Extending an interface
-
-interface Animal {
-  name: string;
-}
-
-interface Bear extends Animal {
-  honey: boolean;
-}
-
-const bear = getBear();
-bear.name;
-bear.honey;
-        
-Extending a type via intersections
-
-type Animal = {
-  name: string;
-}
-
-        
-
-
- // Error: Duplicate identifier 'Window'.
 
  An **enum** (short for "enumeration") in TypeScript is a special type used to define a set of named constant values. Enums allow you to give more meaningful names to numeric or string values, making your code easier to read and maintain.
 
@@ -415,8 +390,6 @@ if (name) {
 - Gradually replace `any` with appropriate types.
 - Refactor codebase incrementally by introducing types for functions, components, and modules.
 
----
 
-This set of questions and answers will help you prepare thoroughly for a **TypeScript interview for a senior developer** role. Let me know if you need detailed explanations or more examples! 😊
 
 

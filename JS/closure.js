@@ -1,5 +1,7 @@
 //A closure in JavaScript is when a function "remembers" the variables from its outer scope even after the outer 
-//function has finished executing. Closures are commonly used for encapsulating functionality, creating private 
+//function has finished executing. Closures are commonly used for \
+// encapsulating functionality, 
+// creating private 
 //variables, and maintaining state.//functun with its lexical scope forms a closure
 function x(){
     let a = 10;
@@ -58,3 +60,54 @@ counter.increment(); // Count: 2
 counter.decrement(); // Count: 1
 console.log(`Current Count: ${counter.getCount()}`); // Current Count: 1
 counter.reset(); // Count reset to 0
+
+let employees = [
+    { name: "Alice", salary: 50000 },
+    { name: "David", salary: 60000 },
+    { name: "Charlie", salary: 70000 },
+    { name: "Alice", salary: 80000 },
+    { name: "David", salary: 90000 }
+];
+// sum of salary for the all the emp. and combine salary for the same name person and sort it .
+
+function getSalary(emp){
+    
+    let sum = emp.reduce((sum,c)=> sum+c.salary ,0);
+    console.log(sum)
+    
+    
+}
+
+getSalary(employees);
+
+
+ 
+// a.callA(); // undefined
+// a.callB(); // India
+
+
+// decorators
+// tupples
+// generics 
+// react fiber
+// useReducer()
+// useMutation();
+// react query concept
+// pattern 
+// signleton pattern drawbacks
+
+// solid principle
+// acid -
+// indexing
+// optimised db query
+// service descorver
+// ciruit breaker
+// clusters and 
+// session based token and token based token
+
+
+
+
+
+
+

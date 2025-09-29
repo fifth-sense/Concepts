@@ -2,7 +2,7 @@
  * Event Bubbling/capturing are two ways event propogate in DOM tree
  * In bubbling event propogate from child to parent to grandparent and so on...
  * In Capturing event propogate from first div to inner div - grandparent to child
- * in browser both things performs first capturing performs theb bubbling 
+ * in browser both things performs first capturing performs then bubbling 
  * we can make our own choice to choose bubbling or capturing while declaring event 
  * we need to pass useCapture = false == bubbling
  * useCapture = true == capturing
